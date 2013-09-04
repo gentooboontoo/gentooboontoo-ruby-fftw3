@@ -40,4 +40,5 @@ if /cygwin|mingw/ =~ RUBY_PLATFORM
    have_library("narray") || raise("ERROR: narray library is not found")
 end
 
+$libs << " -l:narray.so" # Fix underlinking issue on Gentoo (extension linked with --as-needed --no-undefined)
 create_makefile("numru/fftw3")
