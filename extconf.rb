@@ -1,12 +1,13 @@
 require "mkmf"
 
-dir_config('narray',$sitearchdir,$sitearchdir)
-dir_config('fftw3','/usr/local')
+narray_spec = Gem::Specification.find_by_name('narray')
+narray_gem_path = narray_spec.full_gem_path
+dir_config('narray', narray_gem_path, narray_gem_path)
 
 if ( ! ( have_header("narray.h") && have_header("narray_config.h") ) ) then
    print <<-EOS
-   ** configure error **  
-   Header narray.h or narray_config.h is not found. If you have these files in 
+   ** configure error **
+   Header narray.h or narray_config.h is not found. If you have these files in
    /narraydir/include, try the following:
 
    % ruby extconf.rb --with-narray-include=/narraydir/include
