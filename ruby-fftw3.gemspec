@@ -20,10 +20,9 @@ Gem::Specification.new do |s|
                 "test/*",
                 "ChangeLog",
                 "LICENSE.txt",
-                "extconf.rb",
-                "na_fftw3.c"]
+                "ext/na_fftw3.c"]
 
-  s.extensions << "extconf.rb"
+  s.extensions << "ext/extconf.rb"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
